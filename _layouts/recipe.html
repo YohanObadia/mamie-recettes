@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <main class="site-main container recipe-page">
+
+      <article class="recipe">
+        <header class="recipe-header">
+          <h1>{{ page.title }}</h1>
+
+          <div class="recipe-meta">
+            {% if page.source %}
+              <p><strong>Source :</strong>
+                {% if page.source.person %}{{ page.source.person }}{% endif %}
+                {% if page.source.note %} – {{ page.source.note }}{% endif %}
+              </p>
+            {% endif %}
+
+            {% if page.meal_type %}
+              <p><strong>Type :</strong> {{ page.meal_type }}</p>
+            {% endif %}
+
+            <p>
+              {% if page.portions %}
+                <strong>Pour :</strong> {{ page.portions }} personnes
+              {% endif %}
+            </p>
+
+            <p>
+              {% if page.prep_time_minutes %}
+                <strong>Préparation :</strong> {{ page.prep_time_minutes }} min
+              {% endif %}
+              {% if page.cook_time_minutes %}
+                {% if page.prep_time_minutes %} · {% endif %}
+                <strong>Cuisson :</strong> {{ page.cook_time_minutes }} min
+              {% endif %}
+            </p>
+          </div>
+
+          {% if page.photos %}
+            <div class="recipe-photos">
+              {% for photo in page.photos %}
+                <img src="{{ photo | relative_url }}" alt="Photo de la recette {{ page.title }}">
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if page.video and page.video.url %}
+            <div class="recipe-video">
+              <h2>Vidéo</h2>
+              {% if page.video.type == "youtube" %}
+                <div class="video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/{{ page.video.url | split: 'v=' | last | split: '&' | first }}"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              {% else %}
+                <p><a href="{{ page.video.url }}">Voir la vidéo</a></p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </header>
+
+        <section class="recipe-body">
+          {% if page.ingredients %}
+            <section class="recipe-section">
+              <h2>Ingrédients</h2>
+              <ul class="ingredient-list">
+                {% for ing in page.ingredients %}
+                  <li>
+                    {% if ing.quantity %}{{ ing.quantity }}{% endif %}
+                    {% if ing.unit %} {{ ing.unit }}{% endif %}
+                    {% if ing.name %} {{ ing.name }}{% endif %}
+                    {% if ing.note %} <span class="ingredient-note">({{ ing.note }})</span>{% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </section>
+          {% endif %}
+
+          {% if page.steps %}
+            <section class="recipe-section">
+              <h2>Étapes</h2>
+              <ol class="step-list">
+                {% for step in page.steps %}
+                  <li>{{ step }}</li>
+                {% endfor %}
+              </ol>
+            </section>
+          {% endif %}
+
+          {% if content %}
+            <section class="recipe-section recipe-notes">
+              {{ content }}
+            </section>
+          {% endif %}
+        </section>
+      </article>
+
+    </main>
+    {% include footer.html %}
+  </body>
+</html>

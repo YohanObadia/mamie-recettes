@@ -1,0 +1,24 @@
+title: "Les recettes de Mamie"
+description: "Carnet de cuisine de famille"
+baseurl: ""
+url: ""
+
+theme: null
+
+collections:
+  recipes:
+    output: true
+    permalink: /recettes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "recipes"
+    values:
+      layout: recipe
+
+markdown: kramdown
+highlighter: rouge
+
+sass:
+  sass_dir: assets/css
