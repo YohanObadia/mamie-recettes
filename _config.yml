@@ -3,7 +3,7 @@ description: "Carnet de cuisine de famille"
 baseurl: ""
 url: ""
 
-theme: null
+remote_theme: "mmistakes/so-simple-theme"
 
 collections:
   recipes:
