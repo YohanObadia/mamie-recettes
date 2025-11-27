@@ -1,50 +1,55 @@
 ---
 layout: recipe
 
-# Titre de la recette
+# Title of the recipe
 title: "NOM DE LA RECETTE"
 
-# Type de repas (choisir parmi : Entrée, Plat, Dessert, Goûter, Petit-déjeuner, Apéritif, Boisson)
+# Meal type: Entrée, Plat, Dessert, Goûter, Petit-déjeuner, Apéritif, Boisson
 meal_type: "Plat"
 
-# Qui est à l'origine de la recette
+# Recipe origin
 source:
-  person: "Nom de la personne"        # ex: "Mamie Alice", "Tante Sarah"
-  note: "Détail éventuel"             # ex: "Recette de sa maman", peut être vide
+  person: "Nom de la personne"
+  note: ""
 
-# Pour combien de personnes
+# How many portions
 portions: 6
 
-# Temps (en minutes, pour pouvoir faire du dynamique plus tard)
+# Time in minutes
 prep_time_minutes: 30
 cook_time_minutes: 45
 
-# Vidéo (optionnel)
-video:
-  type: "youtube"                     # "youtube" ou "file" ou "" si pas de vidéo
-  url: ""                             # ex: "https://www.youtube.com/watch?v=XXXX"
+# Main image (thumbnail + social share)
+# Path to main.jpg inside assets/images/<recipe-name>/
+image: /assets/images/nom-de-la-recette/main.jpg
 
-# Photos (optionnel) – chemins vers les fichiers dans assets/images
+# Additional photos (optional)
 photos:
-  - /assets/images/nom-de-la-recette-1.jpg
-  # - /assets/images/nom-de-la-recette-2.jpg
+  - /assets/images/nom-de-la-recette/main.jpg
+  # - /assets/images/nom-de-la-recette/step1.jpg
+  # - /assets/images/nom-de-la-recette/step2.jpg
 
-# Liste structurée d'ingrédients
+# YouTube video (optional)
+video:
+  type: "youtube"
+  url: "https://www.youtube.com/watch?v=XXXX"
+
+# Ingredients (structured for future scaling)
 ingredients:
   - name: "Nom de l'ingrédient"
     quantity: 1.5
     unit: "kg"
-    note: "détail optionnel (épluché, ramolli, etc.)"
+    note: ""
   - name: "..."
     quantity: 200
     unit: "g"
     note: ""
 
-# Étapes : une phrase par étape (ou plus)
+# Steps (one per list item)
 steps:
   - "Première étape de la recette..."
   - "Deuxième étape..."
   - "Troisième étape..."
 ---
 
-<!-- Texte libre optionnel : anecdotes, histoire de la recette, conseils, etc. -->
+<!-- Free text: anecdotes, story, tips, etc. -->

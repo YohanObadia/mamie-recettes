@@ -12,12 +12,19 @@ portions: 6
 prep_time_minutes: 30
 cook_time_minutes: 75
 
-video:
-  type: ""          # pas encore de vidéo
-  url: ""
+# Main thumbnail image (used on the homepage)
+image: /assets/images/gratin-dauphinois/main.jpg
 
+# Additional photos (optionnel)
 photos:
-  - /assets/images/gratin-dauphinois.jpg
+  - /assets/images/gratin-dauphinois/main.jpg
+  # - /assets/images/gratin-dauphinois/step1.jpg
+  # - /assets/images/gratin-dauphinois/step2.jpg
+
+# YouTube video (if added later)
+video:
+  type: "youtube"
+  url: ""
 
 ingredients:
   - name: "Pommes de terre"
