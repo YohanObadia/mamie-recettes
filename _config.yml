@@ -1,7 +1,7 @@
 title: "Les recettes de Mamie"
 description: "Carnet de cuisine de famille"
-baseurl: ""
-url: ""
+url: "https://yohanobadia.github.io"
+baseurl: "/Mamie%20Recettes"
 
 remote_theme: "mmistakes/so-simple-theme"
 
