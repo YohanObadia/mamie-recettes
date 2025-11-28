@@ -1,0 +1,6 @@
+main:
+  - title: "Accueil"
+    url: /
+
+  - title: "Recettes"
+    url: /recettes/
