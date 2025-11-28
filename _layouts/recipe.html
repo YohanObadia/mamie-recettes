@@ -1,106 +1,130 @@
-<!doctype html>
-<html lang="fr">
-  {% include head.html %}
-  <body>
-    {% include header.html %}
-    <main class="site-main container recipe-page">
+---
+layout: default
+---
 
-      <article class="recipe">
-        <header class="recipe-header">
-          <h1>{{ page.title }}</h1>
+<article class="entry recipe">
 
-          <div class="recipe-meta">
-            {% if page.source %}
-              <p><strong>Source :</strong>
-                {% if page.source.person %}{{ page.source.person }}{% endif %}
-                {% if page.source.note %} – {{ page.source.note }}{% endif %}
-              </p>
+  <header class="entry-header">
+    <h1 class="entry-title">{{ page.title }}</h1>
+
+    <div class="entry-meta recipe-meta">
+      {% if page.meal_type %}
+        <span class="recipe-badge">{{ page.meal_type }}</span>
+      {% endif %}
+
+      <ul class="recipe-meta-list">
+        {% if page.source %}
+          <li>
+            <strong>Source&nbsp;:</strong>
+            {% if page.source.person %}
+              {{ page.source.person }}
             {% endif %}
-
-            {% if page.meal_type %}
-              <p><strong>Type :</strong> {{ page.meal_type }}</p>
+            {% if page.source.note %}
+              <span class="recipe-source-note">({{ page.source.note }})</span>
             {% endif %}
+          </li>
+        {% endif %}
 
-            <p>
-              {% if page.portions %}
-                <strong>Pour :</strong> {{ page.portions }} personnes
-              {% endif %}
-            </p>
+        {% if page.portions %}
+          <li><strong>Portions&nbsp;:</strong> {{ page.portions }}</li>
+        {% endif %}
 
-            <p>
-              {% if page.prep_time_minutes %}
-                <strong>Préparation :</strong> {{ page.prep_time_minutes }} min
-              {% endif %}
-              {% if page.cook_time_minutes %}
-                {% if page.prep_time_minutes %} · {% endif %}
-                <strong>Cuisson :</strong> {{ page.cook_time_minutes }} min
-              {% endif %}
-            </p>
+        {% if page.prep_time_minutes %}
+          <li><strong>Préparation&nbsp;:</strong> {{ page.prep_time_minutes }} min</li>
+        {% endif %}
+
+        {% if page.cook_time_minutes %}
+          <li><strong>Cuisson&nbsp;:</strong> {{ page.cook_time_minutes }} min</li>
+        {% endif %}
+      </ul>
+    </div>
+  </header>
+
+  {% if page.image %}
+    <figure class="entry-image recipe-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </figure>
+  {% endif %}
+
+  <div class="entry-content recipe-content">
+
+    {% if page.video and page.video.url %}
+      <section class="recipe-section recipe-video">
+        <h2>Vidéo</h2>
+        {% if page.video.type == "youtube" %}
+          <div class="recipe-video-wrapper">
+            <iframe
+              src="{{ page.video.url | replace: 'watch?v=', 'embed/' }}"
+              title="Vidéo de la recette {{ page.title }}"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
           </div>
+        {% else %}
+          <p>
+            <a href="{{ page.video.url }}" target="_blank" rel="noopener">
+              Voir la vidéo de la recette
+            </a>
+          </p>
+        {% endif %}
+      </section>
+    {% endif %}
 
-          {% if page.photos %}
-            <div class="recipe-photos">
-              {% for photo in page.photos %}
-                <img src="{{ photo | relative_url }}" alt="Photo de la recette {{ page.title }}">
-              {% endfor %}
-            </div>
-          {% endif %}
-
-          {% if page.video and page.video.url %}
-            <div class="recipe-video">
-              <h2>Vidéo</h2>
-              {% if page.video.type == "youtube" %}
-                <div class="video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/{{ page.video.url | split: 'v=' | last | split: '&' | first }}"
-                    frameborder="0"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              {% else %}
-                <p><a href="{{ page.video.url }}">Voir la vidéo</a></p>
+    {% if page.ingredients %}
+      <section class="recipe-section recipe-ingredients">
+        <h2>Ingrédients</h2>
+        <ul>
+          {% for ing in page.ingredients %}
+            <li>
+              {% if ing.quantity != "" and ing.quantity != nil %}
+                {{ ing.quantity }}
               {% endif %}
-            </div>
-          {% endif %}
-        </header>
+              {% if ing.unit %}
+                {{ ing.unit }}
+              {% endif %}
+              {% if ing.name %}
+                {% if ing.quantity or ing.unit %}&nbsp;{% endif %}
+                {{ ing.name }}
+              {% endif %}
+              {% if ing.note %}
+                <span class="recipe-note">— {{ ing.note }}</span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
 
-        <section class="recipe-body">
-          {% if page.ingredients %}
-            <section class="recipe-section">
-              <h2>Ingrédients</h2>
-              <ul class="ingredient-list">
-                {% for ing in page.ingredients %}
-                  <li>
-                    {% if ing.quantity %}{{ ing.quantity }}{% endif %}
-                    {% if ing.unit %} {{ ing.unit }}{% endif %}
-                    {% if ing.name %} {{ ing.name }}{% endif %}
-                    {% if ing.note %} <span class="ingredient-note">({{ ing.note }})</span>{% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
-            </section>
-          {% endif %}
+    {% if page.steps %}
+      <section class="recipe-section recipe-steps">
+        <h2>Étapes</h2>
+        <ol>
+          {% for step in page.steps %}
+            <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endif %}
 
-          {% if page.steps %}
-            <section class="recipe-section">
-              <h2>Étapes</h2>
-              <ol class="step-list">
-                {% for step in page.steps %}
-                  <li>{{ step }}</li>
-                {% endfor %}
-              </ol>
-            </section>
-          {% endif %}
+    {% if page.photos and page.photos.size > 1 %}
+      <section class="recipe-section recipe-photos">
+        <h2>Photos</h2>
+        <div class="recipe-photos-grid">
+          {% for photo in page.photos %}
+            <figure class="recipe-photo">
+              <img src="{{ photo | relative_url }}" alt="{{ page.title }}">
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
 
-          {% if content %}
-            <section class="recipe-section recipe-notes">
-              {{ content }}
-            </section>
-          {% endif %}
-        </section>
-      </article>
+    {% if content %}
+      <section class="recipe-section recipe-notes">
+        {{ content }}
+      </section>
+    {% endif %}
 
-    </main>
-    {% include footer.html %}
-  </body>
-</html>
+  </div>
+
+</article>
