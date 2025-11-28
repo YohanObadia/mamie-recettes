@@ -170,3 +170,23 @@ body {
     padding: 1rem;
   }
 }
+
+.recipe-details {
+  margin: 1rem 0 2rem;
+  font-size: 0.9rem;
+  color: var(--body-color);
+}
+
+.recipe-meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.recipe-meta-list li strong {
+  font-weight: 600;
+}
+
