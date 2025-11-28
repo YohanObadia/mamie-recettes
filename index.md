@@ -4,8 +4,7 @@ title: "Les recettes de Mamie"
 permalink: /
 collection: recipes
 
-# options du layout "collection" (So Simple Theme)
-entries_layout: grid      # affichage en grille comme sur la démo
+entries_layout: grid
 sort_by: title
 sort_order: forward
 show_excerpts: false
