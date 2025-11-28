@@ -1,0 +1,61 @@
+/* assets/css/custom.css */
+
+/* Bloc global de l'encart recette */
+.recipe-meta {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0.85rem 1.1rem;
+    border-radius: 0.4rem;
+    background-color: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  
+    font-size: 0.9rem;
+  }
+  
+  /* Chaque ligne de l'encart */
+  .recipe-meta li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+  
+  /* On enlève le gras trop lourd dans le bloc pour harmoniser */
+  .recipe-meta li strong {
+    font-weight: 600;
+  }
+  
+  /* Icônes automatiques par ligne (ordre : source, prépa, cuisson, portions) */
+  .recipe-meta li:nth-child(1)::before {
+    content: "👩‍🍳";
+  }
+  
+  .recipe-meta li:nth-child(2)::before {
+    content: "⏱";
+  }
+  
+  .recipe-meta li:nth-child(3)::before {
+    content: "🔥";
+  }
+  
+  .recipe-meta li:nth-child(4)::before {
+    content: "👥";
+  }
+  
+  /* Sur mobile, on laisse les éléments passer à la ligne proprement */
+  @media (max-width: 600px) {
+    .recipe-meta {
+      gap: 0.35rem 1rem;
+    }
+  
+    .recipe-meta li {
+      white-space: normal;
+    }
+  }
+  
