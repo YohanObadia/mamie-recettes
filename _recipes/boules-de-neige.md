@@ -37,7 +37,6 @@ ingredients:
   - name: "Oeuf entier"
     quantity: 1
     unit: ""
-
 steps:
   - "Mélanger les amandes, les noix, le sucre et la poudre de clou de girofle."
   - "Ajouter l’œuf entier et mélanger pour obtenir une pâte non liquide."
@@ -45,3 +44,21 @@ steps:
   - "Déposer dans de petits moules en papier."
   - "Cuire au four à 150°C pendant 10 minutes environ (très peu cuit)."
 ---
+
+## Ingrédients
+
+- 1 verre d’amandes moulues avec la peau  
+- 1 verre de noix  
+- 1 verre de sucre en poudre  
+- 1 pincée de clou de girofle en poudre  
+- 1 œuf entier  
+- Sucre glace pour enrober  
+- Petits moules en papier
+
+## Étapes
+
+1. Mélanger les amandes moulues, les noix, le sucre et la poudre de clou de girofle.
+2. Ajouter l’œuf entier et mélanger jusqu’à obtenir une pâte non liquide, assez épaisse pour former des boules.
+3. Former des boules de pâte avec les mains, puis les rouler dans le sucre glace.
+4. Déposer les boules dans de petits moules en papier.
+5. Cuire au four à **150°C** pendant environ **10 minutes**. Les boules doivent rester très peu cuites, juste prises.
