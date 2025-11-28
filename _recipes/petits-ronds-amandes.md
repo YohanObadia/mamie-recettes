@@ -13,11 +13,11 @@ prep_time_minutes: 20
 cook_time_minutes: 10
 
 image:
-  path: /assets/images/petits-ronds-amandes/main.jpg
-  thumbnail: /assets/images/petits-ronds-amandes/main.jpg
+  path: /assets/images/petits-ronds-amandes/main.png
+  thumbnail: /assets/images/petits-ronds-amandes/main.png
 
 photos:
-  - /assets/images/petits-ronds-amandes/main.jpg
+  - /assets/images/petits-ronds-amandes/main.png
 
 video:
   type: "youtube"

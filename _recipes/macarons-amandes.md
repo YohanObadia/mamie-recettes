@@ -13,11 +13,11 @@ prep_time_minutes: 20
 cook_time_minutes: 15
 
 image:
-  path: /assets/images/macarons-amandes/main.jpg
-  thumbnail: /assets/images/macarons-amandes/main.jpg
+  path: /assets/images/macarons-amandes/main.png
+  thumbnail: /assets/images/macarons-amandes/main.png
 
 photos:
-  - /assets/images/macarons-amandes/main.jpg
+  - /assets/images/macarons-amandes/main.png
 
 video:
   type: "youtube"

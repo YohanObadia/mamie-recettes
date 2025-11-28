@@ -13,11 +13,11 @@ prep_time_minutes: 15
 cook_time_minutes: 10
 
 image:
-  path: /assets/images/boules-de-neige/main.jpg
-  thumbnail: /assets/images/boules-de-neige/main.jpg
+  path: /assets/images/boules-de-neige/main.png
+  thumbnail: /assets/images/boules-de-neige/main.png
 
 photos:
-  - /assets/images/boules-de-neige/main.jpg
+  - /assets/images/boules-de-neige/main.png
 
 video:
   type: "youtube"
