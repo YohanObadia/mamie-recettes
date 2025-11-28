@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: page
 title: "Boules de neige aux amandes"
 meal_type: "Goûter"
 
@@ -12,7 +12,9 @@ portions: 20
 prep_time_minutes: 15
 cook_time_minutes: 10
 
-image: /assets/images/boules-de-neige/main.jpg
+image:
+  path: /assets/images/boules-de-neige/main.jpg
+  thumbnail: /assets/images/boules-de-neige/main.jpg
 
 photos:
   - /assets/images/boules-de-neige/main.jpg
@@ -37,44 +39,9 @@ ingredients:
   - name: "Oeuf entier"
     quantity: 1
     unit: ""
-steps:
-  - "Mélanger les amandes, les noix, le sucre et la poudre de clou de girofle."
-  - "Ajouter l’œuf entier et mélanger pour obtenir une pâte non liquide."
-  - "Former des boules et les rouler dans du sucre glace."
-  - "Déposer dans de petits moules en papier."
-  - "Cuire au four à 150°C pendant 10 minutes environ (très peu cuit)."
 ---
 
-{% capture prep_time %}
-  {% if page.prep_time_minutes %}
-    {{ page.prep_time_minutes }} min
-  {% endif %}
-{% endcapture %}
-
-{% capture cook_time %}
-  {% if page.cook_time_minutes %}
-    {{ page.cook_time_minutes }} min
-  {% endif %}
-{% endcapture %}
-
-<ul class="recipe-meta">
-  {% if page.source.person %}
-    <li><strong>Source :</strong> {{ page.source.person }}{% if page.source.note %} — {{ page.source.note }}{% endif %}</li>
-  {% endif %}
-
-  {% if prep_time != "" %}
-    <li><strong>Préparation :</strong> {{ prep_time | strip }}</li>
-  {% endif %}
-
-  {% if cook_time != "" %}
-    <li><strong>Cuisson :</strong> {{ cook_time | strip }}</li>
-  {% endif %}
-
-  {% if page.portions %}
-    <li><strong>Portions :</strong> {{ page.portions }}</li>
-  {% endif %}
-</ul>
-
+{% include recipe-meta.html %}
 
 ## Ingrédients
 
